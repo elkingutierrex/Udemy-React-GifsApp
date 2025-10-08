@@ -6,7 +6,7 @@ interface Props {
 }
 
 
-const Gifs : FC<Props> = ( {gifs} ) => {
+const GifsList : FC<Props> = ( {gifs} ) => {
   return (
  <div className='gifs-container'>
             {
@@ -24,4 +24,4 @@ const Gifs : FC<Props> = ( {gifs} ) => {
   )
 }
 
-export default Gifs
+export default GifsList

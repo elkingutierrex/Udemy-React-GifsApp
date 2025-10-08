@@ -1,10 +1,17 @@
-import Gifs from './gifs/components/Gifs'
 import { mockGifs } from './mock-data/gifs.mock'
 import CustomHeader from './shared/components/CustomHeader'
-import PreviousSearches from './shared/components/PreviousSearches'
+import PreviousSearches from './gifs/components/PreviousSearches'
 import SearchBar from './shared/components/SearchBar'
+import GifsList from './gifs/components/GifsList'
+import { useState } from 'react'
 
 const GifsApp = () => {
+  const [previousTerms, setPreviousTerms] = useState(['Goku', 'Boo']);
+
+  const handleTermClicked = (term: string) => {
+    console.log({term});
+  }
+
   return (
     <>
         <CustomHeader title='Buscador de gifs' description='Descubre y comparte el gif'/>
@@ -14,11 +21,12 @@ const GifsApp = () => {
      
 
         {/* busquedas previas */}
-        <PreviousSearches searches={['Goku', 'Vegeta']}/>
+        <PreviousSearches searches={previousTerms}
+                          onLabelClick={handleTermClicked}/>
     
 
         {/* Gifs */}
-       <Gifs gifs={mockGifs} />
+       <GifsList gifs={mockGifs} />
     </>
   )
 }
